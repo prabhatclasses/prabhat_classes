@@ -17,7 +17,7 @@ export function BookDemoModal({ isOpen, onClose }: BookDemoModalProps) {
     name: '',
     phone: '',
     email: '',
-    classInterested: 'X' as string
+    classInterested: 'Class V' as string
   })
   const [selectedDate, setSelectedDate] = useState<Date | null>(null)
   const [currentMonth, setCurrentMonth] = useState(new Date())
@@ -46,7 +46,7 @@ export function BookDemoModal({ isOpen, onClose }: BookDemoModalProps) {
   }
 
   const resetForm = () => {
-    setFormData({ name: '', phone: '', email: '', classInterested: 'X' })
+    setFormData({ name: '', phone: '', email: '', classInterested: 'Class V' })
     setSelectedDate(null)
     setSubmitState('idle')
     setMessage('')
@@ -203,17 +203,29 @@ export function BookDemoModal({ isOpen, onClose }: BookDemoModalProps) {
               disabled={submitState === 'loading' || submitState === 'success'}
               className="w-full px-4 py-3 border border-zinc-300 rounded-lg text-sm focus:outline-none focus:border-red-600 disabled:bg-zinc-100"
             />
-            <select
+              <select
               name="classInterested"
               value={formData.classInterested}
               onChange={handleInputChange}
               disabled={submitState === 'loading' || submitState === 'success'}
               className="w-full px-4 py-3 border border-zinc-300 rounded-lg text-sm focus:outline-none focus:border-red-600 disabled:bg-zinc-100"
             >
-              <option value="IX">Class IX</option>
-              <option value="X">Class X</option>
-              <option value="XI Commerce">Class XI Commerce</option>
-              <option value="XII Commerce">Class XII Commerce</option>
+              <optgroup label="Primary Division (I – IV)">
+                <option value="Class I">Class I</option>
+                <option value="Class II">Class II</option>
+                <option value="Class III">Class III</option>
+                <option value="Class IV">Class IV</option>
+              </optgroup>
+              <optgroup label="School Division (V – VIII)">
+                <option value="Class V">Class V</option>
+                <option value="Class VI">Class VI</option>
+                <option value="Class VII">Class VII</option>
+                <option value="Class VIII">Class VIII</option>
+              </optgroup>
+              <optgroup label="SSC Division (IX – X)">
+                <option value="Class IX">Class IX</option>
+                <option value="Class X">Class X (SSC Board)</option>
+              </optgroup>
             </select>
           </div>
 

@@ -6,7 +6,7 @@ import { ArrowRight, Loader2, WifiOff, X } from "lucide-react"
 import { getToppers, Topper } from "@/lib/api/toppers"
 import { fallbackToppers, fallbackToppers2024 } from "@/lib/api/fallback-data"
 
-// ─── Data helpers ────────────────────────────────────────────────────────────
+
 
 const transformTopper = (topper: (typeof fallbackToppers)[0] | Topper) => ({
   name: topper.name.toUpperCase(),
@@ -16,7 +16,7 @@ const transformTopper = (topper: (typeof fallbackToppers)[0] | Topper) => ({
   _id: topper._id,
 })
 
-// ─── Expanded modal ───────────────────────────────────────────────────────────
+
 
 function ImageLightboxModal({
   image,
@@ -66,7 +66,7 @@ function ImageLightboxModal({
   )
 }
 
-// ─── Individual topper card ───────────────────────────────────────────────────
+
 
 function TopperCard({
   topper,
@@ -109,7 +109,7 @@ function TopperCard({
   )
 }
 
-// ─── CTA card ────────────────────────────────────────────────────────────────
+
 
 function CtaCard() {
   return (

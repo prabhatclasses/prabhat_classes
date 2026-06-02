@@ -5,7 +5,7 @@ import Image from "next/image"
 import { Send, CheckCircle, AlertCircle, Loader2, WifiOff } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { submitContact } from "@/lib/api/contacts"
+
 import { toast } from "sonner"
 
 type SubmitState = "idle" | "loading" | "success" | "error" | "offline"
@@ -161,7 +161,7 @@ ${formData.email ? `• Email: ${formData.email.trim()}` : ""}`
 
             {/* Email */}
             <a
-              href="mailto:prabhatcoachingclasses@gmail.com"
+              href="mailto:prabhatclasses2017@gmail.com"
               className="group flex items-center gap-4 p-4 rounded-xl bg-zinc-900 border border-zinc-800 hover:border-red-600 transition-all duration-200"
             >
               <div className="w-10 h-10 rounded-full bg-red-600/10 border border-red-600/30 flex items-center justify-center flex-shrink-0 group-hover:bg-red-600 group-hover:border-red-600 transition-all duration-200">
@@ -171,7 +171,7 @@ ${formData.email ? `• Email: ${formData.email.trim()}` : ""}`
               </div>
               <div className="min-w-0">
                 <p className="text-xs text-zinc-500 uppercase tracking-widest mb-0.5">Email Us</p>
-                <p className="text-sm font-bold text-white truncate">prabhatclasses@gmail.com</p>
+                <p className="text-sm font-bold text-white truncate">prabhatclasses2017@gmail.com</p>
               </div>
             </a>
           </div>

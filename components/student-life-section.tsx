@@ -20,43 +20,12 @@ export function StudentLifeSection() {
     }
   }
 
-  // Draggable gallery items — all 5 photos spread across the canvas
+  // Draggable gallery items
   const galleryItems = [
-    {
-      id: 1,
-      title: 'Class Celebrations',
-      image: '/images/WhatsApp Image 2026-05-25 at 2.18.11 AM.jpeg',
-      className: 'absolute top-6 left-[5%] rotate-[-7deg]',
-      color: 'from-red-500 to-red-600',
-    },
-    {
-      id: 2,
-      title: 'Cultural Events',
-      image: '/images/WhatsApp Image 2026-05-25 at 2.18.11 AM (1).jpeg',
-      className: 'absolute top-4 left-[28%] rotate-[6deg]',
-      color: 'from-emerald-500 to-emerald-600',
-    },
-    {
-      id: 3,
-      title: 'Group Activities',
-      image: '/images/WhatsApp Image 2026-05-25 at 2.18.11 AM.jpeg',
-      className: 'absolute top-10 left-[51%] rotate-[-4deg]',
-      color: 'from-purple-500 to-purple-600',
-    },
-    {
-      id: 4,
-      title: 'Student Moments',
-      image: '/images/WhatsApp Image 2026-05-31 at 4.43.18 PM.jpeg',
-      className: 'absolute top-[200px] left-[15%] rotate-[5deg]',
-      color: 'from-amber-500 to-amber-600',
-    },
-    {
-      id: 5,
-      title: 'Fun Activities',
-      image: '/images/WhatsApp Image 2026-05-31 at 4.43.19 PM.jpeg',
-      className: 'absolute top-[210px] left-[62%] rotate-[-6deg]',
-      color: 'from-sky-500 to-sky-600',
-    },
+    { id: 1, title: 'Class Celebrations', image: '/images/WhatsApp Image 2026-05-25 at 2.18.11 AM.jpeg', className: 'absolute top-6  left-[4%]  rotate-[-7deg]', color: 'from-red-500 to-red-600' },
+    { id: 2, title: 'Cultural Events', image: '/images/WhatsApp Image 2026-05-25 at 2.18.11 AM (1).jpeg', className: 'absolute top-4  left-[24%] rotate-[6deg]', color: 'from-emerald-500 to-emerald-600' },
+    { id: 3, title: 'Group Activities', image: '/images/WhatsApp Image 2026-05-25 at 2.18.11 AM.jpeg', className: 'absolute top-10 left-[44%] rotate-[-4deg]', color: 'from-purple-500 to-purple-600' },
+    { id: 5, title: 'Student Activities', image: '/images/WhatsApp Image 2026-05-31 at 4.43.19 PM.jpeg', className: 'absolute top-8  left-[80%] rotate-[-5deg]', color: 'from-amber-500 to-amber-600' },
   ]
 
   return (
@@ -103,16 +72,15 @@ export function StudentLifeSection() {
                 className="w-full h-full object-cover"
                 loop
               />
-              
+
               {/* Play Button Overlay */}
               <button
                 onClick={togglePlay}
                 aria-label={isPlaying ? "Pause student life video highlights" : "Play student life video highlights"}
                 className="absolute inset-0 flex items-center justify-center bg-zinc-950/30 group-hover:bg-zinc-950/50 transition-colors duration-300 z-10"
               >
-                <div className={`w-16 h-16 rounded-full bg-red-600 flex items-center justify-center transition-transform duration-300 ${
-                  isPlaying ? 'scale-90 opacity-75' : 'scale-100 group-hover:scale-110'
-                }`}>
+                <div className={`w-16 h-16 rounded-full bg-red-600 flex items-center justify-center transition-transform duration-300 ${isPlaying ? 'scale-90 opacity-75' : 'scale-100 group-hover:scale-110'
+                  }`}>
                   {isPlaying ? (
                     <Pause className="w-7 h-7 text-white ml-0.5" />
                   ) : (
@@ -133,20 +101,20 @@ export function StudentLifeSection() {
         <div className="mb-16">
           <h3 className="text-2xl font-black text-zinc-950 mb-4 uppercase">Activity Gallery</h3>
           <p className="text-zinc-500 text-sm mb-8">Drag the cards around to explore our student activities</p>
-          
-          <DraggableCardContainer className="relative min-h-[500px] w-full bg-gradient-to-br from-zinc-50 to-zinc-100 rounded-2xl border-2 border-dashed border-zinc-200 overflow-hidden">
+
+          <DraggableCardContainer className="relative min-h-[400px] w-full bg-gradient-to-br from-zinc-50 to-zinc-100 rounded-2xl border-2 border-dashed border-zinc-200 overflow-hidden">
             {/* Center Text */}
             <p className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-xl md:text-2xl font-black text-zinc-300 max-w-xs pointer-events-none z-0">
               Drag cards to explore student life moments
             </p>
-            
+
             {/* Draggable Cards */}
             {galleryItems.map((item) => (
               <DraggableCardBody key={item.id} className={item.className}>
                 <div className="relative w-36 h-44 md:w-44 md:h-52 shadow-xl overflow-hidden cursor-grab active:cursor-grabbing rounded-none border border-zinc-200/30">
-                  <Image 
-                    src={item.image} 
-                    alt={item.title} 
+                  <Image
+                    src={item.image}
+                    alt={item.title}
                     fill
                     sizes="(max-width: 768px) 144px, 176px"
                     className="object-cover select-none pointer-events-none"
