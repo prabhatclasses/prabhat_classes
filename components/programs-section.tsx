@@ -257,10 +257,10 @@ export function ProgramsSection() {
               </p>
             </div>
             <a 
-              href="tel:9321446648" 
+              href="tel:8286080756" 
               className="mt-6 bg-white hover:bg-zinc-50 text-red-600 font-black text-xs uppercase tracking-widest py-3.5 px-6 rounded-none transition-all duration-200 flex items-center justify-center gap-2 group self-start"
             >
-              <span>Call: 9321446648</span>
+              <span>Call: 8286080756</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </a>
           </div>

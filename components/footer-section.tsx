@@ -57,7 +57,7 @@ Here are the details:
 ${formData.email ? `• Email: ${formData.email.trim()}` : ""}`
 
       const encodedMsg = encodeURIComponent(msg)
-      const whatsappUrl = `https://wa.me/919321446648?text=${encodedMsg}`
+      const whatsappUrl = `https://wa.me/918286080756?text=${encodedMsg}`
 
       window.open(whatsappUrl, "_blank", "noopener,noreferrer")
 
@@ -129,7 +129,7 @@ ${formData.email ? `• Email: ${formData.email.trim()}` : ""}`
 
             {/* Phone 1 */}
             <a
-              href="tel:9321446648"
+              href="tel:8286080756"
               className="group flex items-center gap-4 p-4 rounded-xl bg-zinc-900 border border-zinc-800 hover:border-red-600 transition-all duration-200"
             >
               <div className="w-10 h-10 rounded-full bg-red-600/10 border border-red-600/30 flex items-center justify-center flex-shrink-0 group-hover:bg-red-600 group-hover:border-red-600 transition-all duration-200">
@@ -139,7 +139,7 @@ ${formData.email ? `• Email: ${formData.email.trim()}` : ""}`
               </div>
               <div>
                 <p className="text-xs text-zinc-500 uppercase tracking-widest mb-0.5">Call Us</p>
-                <p className="text-lg font-black text-white font-mono tracking-wide">9321446648</p>
+                <p className="text-lg font-black text-white font-mono tracking-wide">8286080756</p>
               </div>
             </a>
 
@@ -225,7 +225,7 @@ ${formData.email ? `• Email: ${formData.email.trim()}` : ""}`
                     </svg>
                   </a>
                   <a
-                    href="https://wa.me/919321446648"
+                    href="https://wa.me/918286080756"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="group w-12 h-12 rounded-xl bg-zinc-900 border border-zinc-800 flex items-center justify-center hover:bg-green-600 hover:border-green-600 transition-all duration-300"
@@ -259,7 +259,7 @@ ${formData.email ? `• Email: ${formData.email.trim()}` : ""}`
                 <p className="text-xs font-bold text-zinc-500 uppercase tracking-widest mb-2">Direct Contact</p>
                 <p className="text-sm text-zinc-300 flex flex-col gap-1 font-mono">
                   <span>Call: <a href="tel:8286080756" className="hover:text-white transition-colors font-bold">8286080756</a></span>
-                  <span>Call: <a href="tel:9321446648" className="hover:text-white transition-colors font-bold">9321446648</a></span>
+                  <span>Call: <a href="tel:8286080756" className="hover:text-white transition-colors font-bold">8286080756</a></span>
                 </p>
               </div>
             </div>
@@ -392,7 +392,7 @@ ${formData.email ? `• Email: ${formData.email.trim()}` : ""}`
         <p className="text-xs text-zinc-500 text-center flex flex-wrap justify-center gap-x-3 gap-y-1">
           <span>Call: <a href="tel:8286080756" className="hover:text-white text-zinc-400 font-bold transition-colors">8286080756</a></span>
           <span className="text-zinc-700">|</span>
-          <span><a href="tel:9321446648" className="hover:text-white text-zinc-400 font-bold transition-colors">9321446648</a></span>
+          <span><a href="tel:8286080756" className="hover:text-white text-zinc-400 font-bold transition-colors">8286080756</a></span>
         </p>
         <p className="text-xs text-zinc-600 text-center sm:text-right flex flex-col sm:items-end gap-1">
           <span>Ghatkopar (W), Mumbai – 400 084</span>

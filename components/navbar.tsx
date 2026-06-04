@@ -124,20 +124,20 @@ export function Navbar({ activeSection, onNavigate }: NavbarProps) {
             {/* Sharp CTA (Call Us) on desktop right to balance the logo */}
             <div className="hidden lg:flex items-center">
               <a
-                href="tel:9321446648"
+                href="tel:8286080756"
                 className="flex items-center gap-2 text-xs font-black text-white bg-red-600 hover:bg-red-700 transition-colors duration-200 px-5 py-3 rounded-none uppercase tracking-widest"
               >
                 <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
-                <span>Call: 9321446648</span>
+                <span>Call: 8286080756</span>
               </a>
             </div>
 
             {/* Mobile Call CTA sharp block */}
             <div className="lg:hidden">
               <a
-                href="tel:9321446648"
+                href="tel:8286080756"
                 className="flex items-center gap-1.5 bg-red-600 hover:bg-red-700 text-white px-3 py-2 text-[10px] font-black uppercase tracking-widest rounded-none"
               >
                 <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
