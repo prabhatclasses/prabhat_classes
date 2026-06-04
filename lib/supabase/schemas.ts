@@ -65,3 +65,57 @@ export const topperSchema = z.object({
 export type FacultyInput = z.infer<typeof facultySchema>;
 export type TopperInput = z.infer<typeof topperSchema>;
 
+// Notice Validation Schema
+export const noticeSchema = z.object({
+  notice_text: z
+    .string()
+    .min(1, 'Notice text is required')
+    .refine(
+      (val) => {
+        const words = val.trim().split(/\s+/).filter(Boolean);
+        return words.length >= 1;
+      },
+      { message: 'Notice must have at least 1 word' }
+    )
+    .refine(
+      (val) => {
+        const words = val.trim().split(/\s+/).filter(Boolean);
+        return words.length <= 50;
+      },
+      { message: 'Notice cannot exceed 50 words' }
+    ),
+  is_active: z.boolean().default(true),
+});
+
+// Batch Schedule Validation Schema
+export const scheduleSchema = z.object({
+  batch_name: z
+    .string()
+    .min(1, 'Batch name is required')
+    .max(50, 'Batch name must be 50 characters or less'),
+  batch_tag: z
+    .string()
+    .min(1, 'Batch tag is required')
+    .max(30, 'Batch tag must be 30 characters or less'),
+  focus: z
+    .string()
+    .min(1, 'Focus is required')
+    .refine(
+      (val) => {
+        const words = val.trim().split(/\s+/).filter(Boolean);
+        return words.length <= 20;
+      },
+      { message: 'Focus cannot exceed 20 words' }
+    ),
+  standards: z
+    .array(z.string().min(1))
+    .min(1, 'At least 1 standard is required')
+    .max(10, 'Maximum 10 standards allowed'),
+  start_time: z.string().min(1, 'Start time is required'),
+  end_time: z.string().min(1, 'End time is required'),
+  is_active: z.boolean().default(true),
+});
+
+export type NoticeInput = z.infer<typeof noticeSchema>;
+export type ScheduleInput = z.infer<typeof scheduleSchema>;
+

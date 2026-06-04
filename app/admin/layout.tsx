@@ -13,6 +13,8 @@ import {
   LayoutDashboard,
   Menu,
   X,
+  Bell,
+  CalendarDays,
 } from 'lucide-react';
 
 export default function AdminLayout({
@@ -51,6 +53,8 @@ export default function AdminLayout({
     { href: '/admin', label: 'Overview', icon: LayoutDashboard },
     { href: '/admin/faculty', label: 'Faculty', icon: Users },
     { href: '/admin/toppers', label: 'Toppers', icon: GraduationCap },
+    { href: '/admin/notices', label: 'Notices', icon: Bell },
+    { href: '/admin/schedules', label: 'Schedules', icon: CalendarDays },
   ];
 
   return (

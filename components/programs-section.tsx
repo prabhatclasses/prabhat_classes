@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { ArrowRight } from "lucide-react"
+import { Schedule } from "@/lib/api/schedules"
 
 const divisions = [
   {
@@ -24,58 +25,23 @@ const divisions = [
   }
 ]
 
-const batchSchedules = [
-  {
-    id: "morning",
-    title: "Morning Batch (Hindi)",
-    timing: "08:00 AM – 11:00 AM",
-    classes: ["8th Standard", "9th Standard", "10th Standard"],
-    focus: "Hindi Subject Special Batch",
-    badge: "Hindi Special Batch",
-    divisions: ["school", "ssc"]
-  },
-  {
-    id: "afternoon-1",
-    title: "Afternoon Batch",
-    timing: "02:00 PM – 04:00 PM",
-    classes: ["5th Standard", "6th Standard", "7th Standard"],
-    focus: "Middle School Academic Foundation",
-    badge: "Middle School",
-    divisions: ["school"]
-  },
-  {
-    id: "afternoon-2",
-    title: "Afternoon Batch",
-    timing: "03:00 PM – 05:00 PM",
-    classes: ["5th Standard", "6th Standard", "7th Standard"],
-    focus: "Middle School Academic Foundation",
-    badge: "Middle School",
-    divisions: ["school"]
-  },
-  {
-    id: "evening",
-    title: "Evening Batch",
-    timing: "05:00 PM – 09:00 PM",
-    classes: ["8th Standard", "9th Standard", "10th Standard"],
-    focus: "SSC Board Preparation",
-    badge: "SSC Board Preparation",
-    divisions: ["school", "ssc"]
-  }
-]
-
 const academicGroups = [
   { group: "Primary", standards: "1st – 4th Standard", color: "text-red-500" },
   { group: "Middle School", standards: "5th – 8th Standard", color: "text-emerald-400" },
   { group: "SSC Section", standards: "9th – 10th Standard", color: "text-blue-400" }
 ]
 
-export function ProgramsSection() {
+
+interface ProgramsSectionProps {
+  schedules: Schedule[]
+}
+
+export function ProgramsSection({ schedules }: ProgramsSectionProps) {
   const [selectedDivision, setSelectedDivision] = useState<"primary" | "school" | "ssc">("school")
 
-  // Filter batch schedules dynamically based on active division selection
-  const filteredBatches = batchSchedules.filter(batch => 
-    batch.divisions.includes(selectedDivision)
-  )
+  // All active schedules are shown for School and SSC divisions.
+  // The division tab is a visual selector only — admins control what appears via the admin panel.
+  const filteredBatches = schedules
 
   return (
     <section id="programs" className="py-20 md:py-28 px-4 sm:px-6 lg:px-8 bg-white border-y border-zinc-200">
@@ -139,7 +105,7 @@ export function ProgramsSection() {
         <div className="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-zinc-100 pb-6">
           <div>
             <h3 className="text-2xl font-black text-zinc-950 uppercase tracking-wide mb-2">
-              Batch Schedules & Timetables
+              Batch Schedules &amp; Timetables
             </h3>
             <p className="text-sm text-zinc-500">
               Structured batch timings for selected division.
@@ -159,7 +125,7 @@ export function ProgramsSection() {
                 <div className="flex flex-wrap items-center gap-3">
                   <h4 className="text-xl font-black text-zinc-950 uppercase tracking-wide">Custom Primary Batch</h4>
                   <span className="px-2.5 py-1 bg-red-100 text-red-700 text-[10px] font-black uppercase tracking-widest rounded-none">
-                    Homework Support & Basic Math
+                    Homework Support &amp; Basic Math
                   </span>
                 </div>
                 
@@ -187,18 +153,22 @@ export function ProgramsSection() {
                 Flexible Timings
               </div>
             </div>
+          ) : filteredBatches.length === 0 ? (
+            <div className="p-8 bg-zinc-50 border border-zinc-200 rounded-none text-center text-zinc-500 text-sm font-bold uppercase tracking-widest">
+              No schedules available for this division.
+            </div>
           ) : (
             /* School & SSC Batch Cards */
-            filteredBatches.map((batch, index) => (
+            filteredBatches.map((batch) => (
               <div 
                 key={batch.id} 
                 className="p-8 bg-zinc-50 border border-zinc-200 rounded-none flex flex-col lg:flex-row lg:items-center justify-between gap-6 hover:border-zinc-400 hover:bg-zinc-50/50 transition-all duration-300"
               >
                 <div className="space-y-4 flex-1">
                   <div className="flex flex-wrap items-center gap-3">
-                    <h4 className="text-xl font-black text-zinc-950 uppercase tracking-wide">{batch.title}</h4>
+                    <h4 className="text-xl font-black text-zinc-950 uppercase tracking-wide">{batch.batch_name}</h4>
                     <span className="px-2.5 py-1 bg-red-100 text-red-700 text-[10px] font-black uppercase tracking-widest rounded-none">
-                      {batch.badge}
+                      {batch.batch_tag}
                     </span>
                   </div>
                   
@@ -206,9 +176,9 @@ export function ProgramsSection() {
                     Focus: <span className="text-zinc-800 font-extrabold">{batch.focus}</span>
                   </p>
                   
-                  {/* Classes Badges (Standards as small badges/chips) */}
+                  {/* Classes Badges */}
                   <div className="flex flex-wrap gap-2 pt-1">
-                    {batch.classes.map((cls, idx) => (
+                    {batch.standards.map((cls, idx) => (
                       <span 
                         key={idx} 
                         className="px-3 py-1.5 bg-white border border-zinc-200 text-[10px] font-black text-zinc-950 uppercase tracking-widest rounded-none"
@@ -219,9 +189,9 @@ export function ProgramsSection() {
                   </div>
                 </div>
 
-                {/* Timing (Prominently on the right side) */}
+                {/* Timing */}
                 <div className="bg-red-600 text-white px-8 py-5 text-sm md:text-base font-black tracking-widest uppercase rounded-none text-center self-stretch flex items-center justify-center min-w-[240px]">
-                  {batch.timing}
+                  {batch.start_time} – {batch.end_time}
                 </div>
               </div>
             ))
